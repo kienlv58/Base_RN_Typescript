@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
 import UserService from 'services/userService';
 import { RootState, AppThunk } from './rootReducer';
+import { showLoading } from './globalSlice';
 
 /* ----DEFINE_ACTION_REDUCER----*/
 type User = {
@@ -41,11 +42,16 @@ export const fetchUserInfo = (
   callback?: CallbackType,
 ): AppThunk => async (dispatch) => {
   try {
-    const data = await UserService.login(userName, '123456');
+    dispatch(showLoading({ isLoading: true }));
+    const data = await UserService.getUser(userName);
     callback?.onSuccess?.(data);
     dispatch(setCurrentUser(data));
   } catch (e) {
     console.log('error', e);
+  } finally {
+    setTimeout(() => {
+      dispatch(showLoading({ isLoading: false }));
+    }, 2000);
   }
 };
 

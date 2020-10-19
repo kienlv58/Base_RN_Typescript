@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { selectUserName, logout } from 'redux/sessionSlice';
 import { MAIN_SCREEN } from 'constants/screens';
-// import strings from 'locale';
+import strings from 'locale';
 import styles from './styles';
 
 const MainScreen = () => {
@@ -20,8 +20,7 @@ const MainScreen = () => {
           <Button
             testID="logout-button"
             onPress={logoutRequest}
-            title="logout"
-            // title={strings.MAIN_SCREEN.logout}
+            title={strings.MAIN_SCREEN.logout}
           />
         </>
       )}
@@ -29,8 +28,8 @@ const MainScreen = () => {
   );
 };
 
-// MainScreen.navigationOptions = {
-//   title: strings.MAIN_SCREEN.title,
-// };
+MainScreen.navigationOptions = {
+  title: strings.MAIN_SCREEN.title,
+};
 
 export default MainScreen;

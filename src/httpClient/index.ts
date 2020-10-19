@@ -2,6 +2,8 @@ import Config from 'react-native-config';
 import { merge } from 'lodash';
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
+console.log('Config', Config);
+
 const APPLICATION_JSON = 'application/json';
 const CONTENT_TYPE = 'Content-Type';
 
@@ -31,11 +33,12 @@ export const configure = (
     },
     timeout: 30000,
   };
-  merge(targetConfig, {
-    headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
-  });
+  if (accessToken)
+    merge(targetConfig, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
 
   return merge(targetConfig, requestConfig);
 };

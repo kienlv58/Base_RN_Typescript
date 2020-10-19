@@ -1,13 +1,9 @@
 import httpClient from 'httpClient';
 
 class UserService {
-  async login(userName: string, passWord: string) {
-    // const { data } = await httpClient.post('/users/sign_in', {
-    //   userName,
-    //   passWord,
-    // });
-
-    return { name: 'kien', age: 24 };
+  async getUser(userName: string) {
+    const { data } = await httpClient.get(`users/${userName}`);
+    return data;
   }
 }
 

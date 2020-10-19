@@ -34,5 +34,3 @@ export default function appConfigureStore() {
 
   return { store, persistor };
 }
-
-// export type AppDispatch = typeof store.dispatch;

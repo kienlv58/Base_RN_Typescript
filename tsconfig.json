@@ -56,7 +56,9 @@
       "navigators": ["./navigators"],
       "constants/*": ["./constants/*"],
       "services/*": ["./services/*"],
-      "redux/*": ["./redux/*"]
+      "redux/*": ["./redux/*"],
+      "locale": ["./locale"],
+      "components/*": ["./components/*"]
     }
     /* Enables emit interoperability between CommonJS and ES Modules via creation of namespace objects for all imports. Implies 'allowSyntheticDefaultImports'. */
     // "preserveSymlinks": true,              /* Do not resolve the real path of symlinks. */
